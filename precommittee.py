@@ -18,7 +18,7 @@ PAGES_STUB = [{
     'image': '/files/Page_04.jpg',
     'transfers': [{
         'articleId':'012003',
-        'amount':'-30'
+        'amount':'30'
     }]
 },{
     'pageId': '2',
