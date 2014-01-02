@@ -16,19 +16,19 @@ $( document ).ready(function() {
     error: function(err, file) {
       switch(err) {
         case 'BrowserNotSupported':
-        alert('browser does not support HTML5 drag and drop')
+        popup('הדפדפן אינו תומך בגרירת קבצים', 'שגיאה')
         break;
         case 'TooManyFiles':
-        alert('Cannot upload more than 25 files')
+        popup('לא ניתן להעלות יותר מ-25 קבצים', 'שגיאה')
         break;
         case 'FileExtensionNotAllowed':           
-        alert('Cannot upload files of type .' + file.name.split('.').pop())
+        popup('לא ניתן להעלות קבצים מסוג ' + file.name.split('.').pop(), 'שגיאה')
         break;
         case 'FileTooLarge':
-        alert('Maximum file size of 20 MB exceeded')
+        popup('הקובץ גדול מדי. גודל מרבי הינו 20 MB', 'שגיאה')
         break;
         default:
-        alert('An error has occured')
+        popup('לא ניתן להעלות את הקובץ', 'שגיאה')
         break;
       }
     },
@@ -56,6 +56,7 @@ $( document ).ready(function() {
       uploadFinished: function(i, file, response, time) {
         if (response.success) {
           $('#requestFileUrl').val(response.url);
+          popup('הקובץ נשמר', 'הודעה');
         }
       },
       progressUpdated: function(i, file, progress) {
